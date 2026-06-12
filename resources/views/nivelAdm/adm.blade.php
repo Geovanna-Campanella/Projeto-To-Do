@@ -22,6 +22,7 @@
                 <div class="divSecundaria">
 
                     <h1>Usuários</h1>
+                    <a href="/download-csv-usuario"> Downloado arquivo dos usuários </a>
 
                     <div class="configAdm">
                         <div class="divIcone">

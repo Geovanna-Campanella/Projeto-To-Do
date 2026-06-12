@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\adminModel;
 use App\Models\userModel;
 
+//Arquivos CSV
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
+
 use Illuminate\Support\Facades\Hash;
 
 class adminController extends Controller
@@ -147,5 +151,48 @@ class adminController extends Controller
         return response()->json([
             'message'=>"Admin excluído",'code'=>200
         ]);
+    }
+
+    public function download(){
+        $sql = 'select * from usuario';
+
+        $queryJson = DB::select($sql);
+
+        //Nome do arquivo CSV
+        $filename = 'usuarios.csv';
+
+        //Cabeçalho
+        $headers = [
+            'Content-Type' => 'text/csv;charset=utf-8',
+            'Content-Disposition' => 'attachment; filename="' . $filename . '"',
+        ];
+
+        $file = fopen('php://output', 'w');
+
+        fclose($file);
+
+        //Gerar o arquivo CSV
+        $callback = function () use ($queryJson) {
+
+        $file = fopen('php://output', 'w');
+
+        //Cabeçalho2
+        $col1 = "ID";
+        $col2 = "Nome";
+        $col3 = "Email";
+
+        $escreve = fwrite($file, "$col1;$col2;$col3;");
+
+            foreach($queryJson as $d){
+                $data1 = $d->id;
+                $data2 = mb_convert_encoding($d->nome,"ISO-8859-1");
+                $data3 = $d->email;
+                $escreve = fwrite($file, "\n$data1;$data2;$data3;");
+            }
+            fclose($file);
+        };
+
+        //Retorna o arquivo pra download
+        return Response::stream($callback, 200, $headers);
     }
 }

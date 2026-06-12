@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/usuario','App\Http\Controllers\usuarioController@index');
 Route::get('/tarefa','App\Http\Controllers\tarefaController@index');
-<<<<<<< HEAD
+
 Route::get('/criar-cadastro','App\Http\Controllers\CadastroController@create');
 Route::post('/criar-cadastro','App\Http\Controllers\CadastroController@store');
 
@@ -28,5 +28,3 @@ Route::post('/criar-cadastro','App\Http\Controllers\CadastroController@store');
 Route::get('/entrar-login','App\Http\Controllers\loginController@index');
 Route::post('/entrar-login','App\Http\Controllers\loginController@store');
 
-=======
->>>>>>> a95a488106fce3240fd2751b961807811dac51b4

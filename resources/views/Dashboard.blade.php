@@ -61,6 +61,10 @@
 
                 </div>
             </div>
+
+            <div class="CSVboard"> 
+                <a href="/download-csv-tarefa"> Downloado arquivo das suas tarefas </a>
+            </div>
             <div class="dashboard_final">
                     <img src="{{asset('img/logoAstrolist/saturn.png')}}" alt="" class="saturn">
                     <div><h1>título</h1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi nostrum nesciunt animi enim dignissimos debitis ea.</p></div>

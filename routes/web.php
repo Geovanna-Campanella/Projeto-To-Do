@@ -23,3 +23,7 @@ Route::post('/tarefa','App\Http\Controllers\tarefaController@store');
 
 // Usuário 
 Route::get('/usuario/{id}', [CadastroController::class, 'show']);
+
+//Routes CSV
+Route::get('/download-csv-tarefa','App\Http\Controllers\tarefaController@download')->name('download.csv');
+Route::get('/download-csv-usuario','App\Http\Controllers\adminController@download')->name('download.csv');
