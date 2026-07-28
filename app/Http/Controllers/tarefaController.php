@@ -178,4 +178,10 @@ class tarefaController extends Controller
         //Retorna o arquivo pra download
         return Response::stream($callback, 200, $headers);
     }
+
+    public function listaPorIdAPI($id){
+        $tarefa = tarefaModel::where('id', '=',$id)->get();
+
+        return response()->json($tarefa);
+    }
 }

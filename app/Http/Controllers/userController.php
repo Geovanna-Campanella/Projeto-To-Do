@@ -145,4 +145,11 @@ class userController extends Controller
             'message'=>"Usuário excluído",'code'=>200
         ]);
     }
+
+    public function listaPorIdAPI($id){
+
+        $usuario = userModel::where('id', '=',$id)->get();
+        
+        return response()->json($usuario);
+    }
 }
