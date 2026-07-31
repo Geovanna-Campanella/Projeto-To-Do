@@ -152,4 +152,11 @@ class userController extends Controller
         
         return response()->json($usuario);
     }
+
+    public function listaPorNomeAPI($nome){
+
+        $usuario = userModel::where('nome', '=',$nome)->get();
+        
+        return response()->json($usuario);
+    }
 }

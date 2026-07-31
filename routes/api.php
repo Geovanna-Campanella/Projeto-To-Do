@@ -14,6 +14,7 @@ Route::put('/usuario/{id}','App\Http\Controllers\userController@updateApi');
 Route::delete('/usuario/{id}','App\Http\Controllers\userController@destroyApi');
 Route::get('/usuario/{id}','App\Http\Controllers\userController@countUsuario');
 Route::get('/usuario/{id}', 'App\Http\Controllers\userController@listaPorIdAPI');
+Route::get('/usuario/{id}', 'App\Http\Controllers\userController@listaPorNomeAPI');
 
 // Rotas da tarefa
 Route::get('/tarefa','App\Http\Controllers\tarefaController@indexApi');
