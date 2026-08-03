@@ -8,12 +8,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Rotas do usuário get - post - put
-Route::get('/usuario','App\Http\Controllers\userController@indexApi');
-Route::post('/usuario','App\Http\Controllers\CadastroController@storeApi');
-Route::put('/usuario/{id}','App\Http\Controllers\userController@updateApi');
-Route::delete('/usuario/{id}','App\Http\Controllers\userController@destroyApi');
-Route::get('/usuario/{id}','App\Http\Controllers\userController@countUsuario');
-Route::get('/usuario/{id}', 'App\Http\Controllers\userController@listaPorIdAPI');
+Route::get('/usuario', 'App\Http\Controllers\userController@indexApi');
+Route::post('/usuario', 'App\Http\Controllers\CadastroController@storeApi');
+Route::put('/usuario/{id}', 'App\Http\Controllers\userController@updateApi');
+Route::delete('/usuario/{id}', 'App\Http\Controllers\userController@destroyApi');
+
+// Rotas com filtros
+Route::get('/usuario/count/{id}', 'App\Http\Controllers\userController@countUsuario');
+Route::get('/usuario/id/{id}', 'App\Http\Controllers\userController@listaPorIdAPI');
+Route::get('/usuario/nome/{nome}', 'App\Http\Controllers\userController@listaPorNomeAPI');
 
 // Rotas da tarefa
 Route::get('/tarefa','App\Http\Controllers\tarefaController@indexApi');
